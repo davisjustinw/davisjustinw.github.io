@@ -1,11 +1,11 @@
 # Site settings
 author: Justin Davis
-title: 
+title: Crows Make Tools
 header-img: img/home-bg.png
 email: davisjustinw@gmail.com
 copyright_name: Justin Davis
 description: > # this means to ignore newlines until "baseurl:"
-  
+  Explore. Learn. Adapt.
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: 
 github_username:  davisjustinw
