@@ -12,7 +12,7 @@ For a while now, I've had ideas about how I'd want to build a tool.  While some 
 
 One challenge I faced was with the following view.
 
-![items](https://live.staticflickr.com/65535/49246105781_a5aca3e977_c.jpg)
+![items](https://live.staticflickr.com/65535/49246105781_eeab66a520_o_d.jpg)
 
 The user story this attempts to tackle was that of a stock manager setting par levels across the locations in their charge.  When setting par levels it's easier to be able to see all, if not most of the locations at once, to have something to compare.
 
