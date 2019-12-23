@@ -8,11 +8,11 @@ permalink:  hash_for_speed
 
 My Flatiron Rails portfolio project [DropKeet](https://github.com/davisjustinw/dropkeet) is my attempt at an inventory management tool.  The inspiration for my project came from my past in EMS and remote medicine.  In both fields, tracking medical equipment and supplies can be tricky with subtle challenges that require flexibility.  Spreadsheets quickly become cumbersome and tools on the market were never quite what we needed. 
 
-For a while now, I've had ideas about how I'd want to build a tool.  While some features I envision will probably require Javascript, I felt the Rails project would give me an opportunity to play with some data model ideas and ftry out an MVP.  So I took a crack at it.
+For a while now, I've had ideas about how I'd want to build a tool.  While some features I envision will probably require Javascript, I felt the Rails project would give me an opportunity to play with some data model ideas and try out an MVP.  So I took a crack at it.
 
 One challenge I faced was with the following view.
 
-![items](https://live.staticflickr.com/65535/49246105781_1a3befa896_c.jpg)
+![items](https://live.staticflickr.com/65535/49246105781_a5aca3e977_c.jpg)
 
 The user story this attempts to tackle was that of a stock manager setting par levels across the locations in their charge.  When setting par levels it's easier to be able to see all, if not most of the locations at once, to have something to compare.
 
