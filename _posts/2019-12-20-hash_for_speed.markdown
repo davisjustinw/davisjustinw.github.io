@@ -107,4 +107,6 @@ end
 
 That's it.  Cheers.
 
+Image hosting provided by [flickr](https://www.flickr.com/)
+
 
