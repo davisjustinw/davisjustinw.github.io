@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Rabbit-holes and Cherry Blossoms"
-date:       2020-01-24 08:35:55 +0000
+date:       2020-01-24 03:35:56 -0500
 permalink:  rabbit-holes_and_cherry_blossoms
 ---
 
@@ -45,37 +45,35 @@ If a class higher up in the hierarchy holds information then the child classes c
 I chose this so I only had to pass the board down to other objects and not a bunch of other variables.  I wasn't super strict about this methodology but I found myself refactoring often to this approach in order to keep things straight.  I was roughly inspired by [Flux architecture](http://fluxxor.com/what-is-flux.html) and React.
 
 ### Fun With Bind
-My lesson in the bind method was interesting.  Through research I discovered the `requestAnimationFrame(callback)` method for creating the game loop.  Here is my game loop from the Board class.
+My lesson in the bind method was interesting.  Through research I discovered the requestAnimationFrame(callback) method for creating the game loop.  Here is my game loop from the Board class.
 
 ```
 moveWords() {
-    if(!this.paused) {
-      for (const word in this.queue.words) {
-        this.queue.words[word].update();
-      }
-    } else if(this.paused && !this.timer) {
-      this.playback();
-      this.timer = setInterval(this.playback.bind(this), 3000);
-    }
+   if(!this.paused) {
+	    for (const word in this.queue.words) {
+			   this.queue.words[word].update();
+			}
+		} else if(this.paused && !this.timer) {
+		   this.playback();
+			 this.timer = setInterval(this.playback.bind(this), 3000);
+		} 
+		
+		this.checkForReset();
+		requestAnimationFrame(this.moveWords.bind(this));
+}
+```
 
-    this.checkForReset();
+As you can see moveWords() passes itself to requestAnimationFrame().  If we are unpaused we update the positions of all the words in the queue.  The requestAnimationFrame() method calls the moveWords() method at a rate that maintains a good framerate for smooth animation.  In the Kirupa article, their callback was global so requestAnimationFrame() could call it until it's heart's content.  When I first took a crack at this, Javascript balked saying, "hey you can't moveWords on undefined."
 
-    requestAnimationFrame(this.moveWords.bind(this));
-  }
-	```
-	
-	
-	As you can see `moveWords()` passes itself to `requestAnimationFrame()`.  If we are unpaused we update the positions of all the words in the queue.  The `requestAnimationFrame()` method calls the `moveWords()` method at a rate that maintains a good framerate for smooth animation.  In the Kirupa article, their callback was global so `requestAnimationFrame()` could call it 'till it's heart's content.  When I first took a crack at this, Javascript balked saying, "hey you can't moveWords on undefined."
-	
-	Something tickled the back of my mind and said, "Hey I've seen this bind method before that was really confusing in a similar context maybe I need to cehck that out."  Bind is one of those things I'd seen used, was super confused about, so just accepted.  I hate those.  So I returned to oh glorious internet to take bind off the just accepted list.  
-	
-	What does bind do?
-	
-	Bind passes context.  That's it.  It sends `this` down another level.  Bam, that's what I needed.  My `moveWords()` method references `this` to lookup variables.  When `requestAnimationFrame()` calls `moveWords()`, that instance of `moveWords()` doesn't know what `this` is.  
-	
-	So you have to tell it.
-	
-	So you `bind(this)` to say hey `moveWords()`, not to worry, I got your `this` right here.  You can see I used the same technique on my `playback()` callback for when the game is paused.  I'm sure I'll forget exactly when to use bind.  But I've commited to memory, bind passes context.  
-	
-	So remember, if your context is fouled up, maybe reach for bind.
+Something tickled the back of my mind and said, "Hey I've seen this bind method before that was really confusing in a similar context maybe I need to cehck that out."  Bind is one of those things I'd seen used, was super confused about, so just accepted.  I hate those.  So I returned to oh glorious internet to take bind off the just accepted list.  
+
+What does bind do?
+
+Bind passes context.  That's it.  It sends this down another level.  Bam, that's what I needed.  My moveWords() method references this to lookup variables.  When requestAnimationFrame() calls moveWords(), that instance of moveWords() doesn't know what this is.  
+
+So you have to tell it.
+
+So you bind(this) to say hey moveWords(), not to worry, I got your this right here.  You can see I used the same technique on my playback() callback for when the game is paused.  I'm sure I'll forget exactly when to use bind.  But I've commited to memory, bind passes context.  
+
+So remember, if your context is fouled up, maybe reach for bind.
 
