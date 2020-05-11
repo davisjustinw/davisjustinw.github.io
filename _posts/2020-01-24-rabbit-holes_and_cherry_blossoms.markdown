@@ -9,7 +9,7 @@ permalink:  rabbit-holes_and_cherry_blossoms
 
 I was feeling a bit reflective, so I chose to build a kind of meditative word game for my Javascript/Rails project.  While wandering the internet seeking inspiration, I started researching the origins of haiku.  I stumbled on an interesting paper (If you like to geek out on little morsels of culture and history). Oh glorious internet. 
 
-([RENGA: The Literary Embodiment of Impermanence and Nonself]https://www.uwosh.edu/facstaff/barnhill/244-japan/Renga.pdf by, David Landis Barnhill.
+[RENGA: The Literary Embodiment of Impermanence and Nonself]https://www.uwosh.edu/facstaff/barnhill/244-japan/Renga.pdf by, David Landis Barnhill.
 
 While reading the paper, I imagined stanzas and words fading in and out of existence like another Japanese theme, the cherry blossom.  I grew up in an agricultural area with acres of orchards around.  There's just something about blossoms snowing from their branches.  I wanted to build that.
 
