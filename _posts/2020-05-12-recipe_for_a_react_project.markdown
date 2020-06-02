@@ -132,7 +132,7 @@ create /lib/tasks/start.rake
 ## /config/initializers/cors.rb
 Uncomment the the middleware block provided by rails and update the origins statement.  Choose authorized methods and resources.
 
-`Rails.application.config.middleware.insert_before 0, Rack::Cors do
+```Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins 'http://localhost:3000'
 
@@ -141,7 +141,7 @@ Uncomment the the middleware block provided by rails and update the origins stat
     methods: [:get, :post, :put, :patch, :delete, :options, :head]
     credentials: true
   end
-end`
+end```
 
 ## User Model
 rails g model User email:string password_digest:string
