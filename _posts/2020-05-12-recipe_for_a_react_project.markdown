@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Recipe For a React Project"
-date:       2020-05-12 07:04:10 +0000
+date:       2020-05-12 03:04:11 -0400
 permalink:  recipe_for_a_react_project
 ---
 
@@ -66,7 +66,9 @@ https://www.postgresql.org/download/
 ## Setup postgres user
 
 > psql
+> 
 > create role coolprojectrole with createdb login password '$uper$ecretPassword42';
+> 
 > \q
 
 
